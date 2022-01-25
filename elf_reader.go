@@ -358,9 +358,9 @@ func (ec *elfCode) loadFunctions(section *elfSection) (map[string]asm.Instructio
 		n, err := ins.Unmarshal(r, ec.ByteOrder)
 		if errors.Is(err, io.EOF) {
 			fn := insns.Name()
-			if fn == "" {
-				return nil, errors.New("reached EOF before finding a valid symbol")
-			}
+			//if fn == "" {
+			//	return nil, errors.New("reached EOF before finding a valid symbol")
+			//}
 
 			// Reached the end of the section and the decoded instruction buffer
 			// contains at least one valid instruction belonging to a function.

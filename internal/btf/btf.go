@@ -91,7 +91,7 @@ func LoadSpecFromReader(rd io.ReaderAt) (*Spec, error) {
 	defer file.Close()
 
 	symbols, err := file.Symbols()
-	if err != nil {
+	if err != nil && err != elf.ErrNoSymbols {
 		return nil, fmt.Errorf("can't read symbols: %v", err)
 	}
 

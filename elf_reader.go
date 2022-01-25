@@ -395,9 +395,9 @@ func (ec *elfCode) loadFunctions(section *elfSection) (map[string]asm.Instructio
 			if ins.IsFunctionReference() && ins.Constant != -1 {
 				tgt := jumpTarget(offset, ins)
 				sym := section.symbols[tgt].Name
-				if sym == "" {
-					return nil, fmt.Errorf("offset %d: no jump target found at offset %d", offset, tgt)
-				}
+				//if sym == "" {
+				//	return nil, fmt.Errorf("offset %d: no jump target found at offset %d", offset, tgt)
+				//}
 
 				ins.Reference = sym
 				ins.Constant = -1

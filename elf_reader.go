@@ -1188,7 +1188,8 @@ func (ec *elfCode) loadRelocations(sec *elf.Section, symbols []elf.Symbol) (map[
 
 		symNo := int(elf.R_SYM64(rel.Info) - 1)
 		if symNo >= len(symbols) {
-			return nil, fmt.Errorf("offset %d: symbol %d doesn't exist", off, symNo)
+			continue
+			//return nil, fmt.Errorf("offset %d: symbol %d doesn't exist", off, symNo)
 		}
 
 		symbol := symbols[symNo]

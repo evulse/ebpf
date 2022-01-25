@@ -109,7 +109,7 @@ func LoadCollectionSpecFromReader(rd io.ReaderAt) (*CollectionSpec, error) {
 	}
 
 	symbols, err := f.Symbols()
-	if err != nil {
+	if err != nil && err != elf.ErrNoSymbols {
 		return nil, fmt.Errorf("load symbols: %v", err)
 	}
 

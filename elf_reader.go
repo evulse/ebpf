@@ -108,7 +108,7 @@ func LoadCollectionSpecFromReader(rd io.ReaderAt) (*CollectionSpec, error) {
 		btf:         btfSpec,
 	}
 
-	symbols, err := f.Symbols()
+	symbols, err := f.DynamicSymbols()
 	if err != nil && err != elf.ErrNoSymbols {
 		return nil, fmt.Errorf("load symbols: %v", err)
 	}
